@@ -1,6 +1,5 @@
 // server.js
 
-// require the http module and create a server
 const http = require('http'),
       url = require('url'),
 
@@ -33,7 +32,6 @@ makeServer = function (request, response) {
 server = http.createServer(makeServer);
 
 
-// tell the server to listen at port 3000 (localhost:3000)
 server.listen(3000,() => {
   console.log('Node server created at port 3000');
 });
