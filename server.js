@@ -1,14 +1,19 @@
 // server.js
 
 const express = require('express'),
-      server = express();
+      server = express(),
+      users = require('./users');
 
 server.set('port', process.env.PORT || 3000);
 
 
 server.get('/', (request,response) => {
-   response.send('Home page');
+   response.sendFile(__dirname + '/index.html');
 });
+
+server.get('/users', (request, response) => {
+  response.json(users);
+}) 
 
 server.get('/about',(request,response) => {
    response.send('About page');
