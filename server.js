@@ -1,0 +1,39 @@
+// server.js
+
+// require the http module and create a server
+const http = require('http'),
+      url = require('url'),
+
+
+makeServer = function (request, response) {
+
+  let path = url.parse(request.url).pathname;
+  console.log(path);
+
+  if (path === '/') {
+    response.writeHead(200,{'Content-Type':'text/plain'});
+    response.write('Hello world');
+  }
+  else if (path === '/about') {
+    response.writeHead(200,{'Content-Type':'text/plain'});
+    response.write('About Page');
+  }
+  else if (path === '/blog') {
+    response.writeHead(200,{'Content-Type':'text/plain'});
+    response.write('Blog Page');
+  }
+  else {
+    response.writeHead(404,{'Content-Type':'text/plain'});
+    response.write('Error Page');
+  }
+
+  response.end();
+},
+
+server = http.createServer(makeServer);
+
+
+// tell the server to listen at port 3000 (localhost:3000)
+server.listen(3000,() => {
+  console.log('Node server created at port 3000');
+});
