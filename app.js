@@ -10,7 +10,7 @@ app.set('view engine', 'handlebars')
 app.set('port', process.env.PORT || 3000);
 
 app.get('/', (req,res) => {
-   res.render('index')
+   res.render('home')
 })
 
 app.get('/users', (req, res) => {
