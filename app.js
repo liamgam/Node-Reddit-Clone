@@ -9,19 +9,19 @@ app.set('view engine', 'handlebars')
 
 app.set('port', process.env.PORT || 3000);
 
-app.get('/', (request,response) => {
-   response.sendFile(__dirname + '/index.html');
-});
+app.get('/', (req,res) => {
+   res.render('index')
+})
 
 app.get('/users', (req, res) => {
-  response.json(users);
-});
+  response.json(users)
+})
 
 app.get('/posts/new',(req,res) => {
-   res.render('posts-new');
-});
+   res.render('posts-new')
+})
 
 
 app.listen(3000,() => {
-  console.log('Express server listening at port 3000');
+  console.log('Express server listening at port 3000')
 })
