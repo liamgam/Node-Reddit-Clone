@@ -8,6 +8,8 @@ const express = require('express'),
 const bodyparser = require('body-parser'),
       expressValidator = require('express-validator');
 
+const database = require('./data/reddit-db');
+
 
 // - Initial Setup
 
