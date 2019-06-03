@@ -14,7 +14,7 @@ router.post('/',(req,res) => {
    	res.render('posts-index', {posts});
    })
    .catch(err => {
-   	console.log(err.message)
+   	console.log(err.message);
    })
 })
 
@@ -22,5 +22,14 @@ router.get('/new',(req,res) => {
    res.render('posts-new')
 })
 
+router.get('/:id', (req, res) => {
+	Post.findById(req.params.id)
+	.then(post => {
+		res.render('posts-show', { post });
+	})
+	.catch(err => {
+		console.log(err.message);
+	})
+})
 
 module.exports = router;
