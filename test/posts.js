@@ -23,14 +23,14 @@ describe('Posts', () => {
 		.then((initialDocCount) => {
 			chai
 			.request(app)
-			.post('/posts/new')
+			.post('/posts')
 			.set("content-type", "application/x-www-form-urlencoded")
 
 			.send(newPost)
 			.then((res) => {
 				Post.estimatedDocumentCount()
 				.then((newDocCount) => {
-					expect(res).to.have.status(200) // CRASH
+					expect(res).to.have.status(200)
 					expect(newDocCount).to.be.equal(initialDocCount + 1)
 					done()
 				})
