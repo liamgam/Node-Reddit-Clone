@@ -5,12 +5,11 @@ const app = require('./../app'),
 
 chai.use(chaiHttp);
 
-describe('site', function() {
-	it('should have home page', function(done) {
+describe('site', () => {
+	it('should have home page', (done) => {
 		chai
 		.request(app)
 		.get('/')
-		// use function keyword???
 		.end((err, res) => {
 			if (err) {
 				return done(err)
